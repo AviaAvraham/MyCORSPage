@@ -20,7 +20,7 @@
         const targetUrl = getUrlParameter('url');
 
         if (targetUrl) {
-            fetch(targetUrl)
+            fetch(targetUrl, { mode: 'no-cors' })
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
