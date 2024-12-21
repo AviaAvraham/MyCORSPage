@@ -23,6 +23,7 @@
             fetch(targetUrl, { mode: 'no-cors' })
                 .then(response => {
                     if (!response.ok) {
+                        console.log(response);
                         throw new Error('Network response was not ok');
                     }
                     return response.text(); // Use .text() for HTML or .json() for JSON
