@@ -20,7 +20,7 @@
         const targetUrl = getUrlParameter('url');
 
         if (targetUrl) {
-            fetch(targetUrl, { mode: 'no-cors' })
+            fetch(targetUrl)
                 .then(response => {
                     if (!response.ok) {
                         console.log(response);
