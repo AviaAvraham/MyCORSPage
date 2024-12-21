@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Proxy</title>
+</head>
+<body>
+    <h1>Simple Proxy</h1>
+    <div id="result"></div>
+
+    <script>
+        // Function to get the URL parameter
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Fetch the URL from the query string
+        const targetUrl = getUrlParameter('url');
+
+        if (targetUrl) {
+            fetch(targetUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text(); // Use .text() for HTML or .json() for JSON
+                })
+                .then(data => {
+                    // Display the fetched data
+                    document.getElementById('result').innerHTML = `<pre>${data}</pre>`;
+                })
+                .catch(error => {
+                    document.getElementById('result').innerHTML = `Error: ${error.message}`;
+                });
+        } else {
+            document.getElementById('result').innerHTML = 'No URL provided. Please use ?url=your_url_here';
+        }
+    </script>
+</body>
+</html>
