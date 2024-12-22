@@ -10,34 +10,7 @@
     <div id="result"></div>
 
     <script>
-        // Function to get the URL parameter
-        function getUrlParameter(name) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
-        }
-
-        // Fetch the URL from the query string
-        const targetUrl = getUrlParameter('url');
-
-        if (targetUrl) {
-            fetch(targetUrl)
-                .then(response => {
-                    if (!response.ok) {
-                        console.log(response);
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text(); // Use .text() for HTML or .json() for JSON
-                })
-                .then(data => {
-                    // Display the fetched data
-                    document.getElementById('result').innerHTML = `<pre>${data}</pre>`;
-                })
-                .catch(error => {
-                    document.getElementById('result').innerHTML = `Error: ${error.message}`;
-                });
-        } else {
-            document.getElementById('result').innerHTML = 'No URL provided. Please use ?url=your_url_here';
-        }
+        document.getElementById('result').innerHTML = "This was nonsense, ended up using pythonAnywhere as a CORS proxy server, cheers! https://www.pythonanywhere.com";
     </script>
 </body>
 </html>
